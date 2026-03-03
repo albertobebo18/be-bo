@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>BeBo - Reti Sicurezza Assistenza</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -35,6 +36,20 @@
             font-size: 18px;
             line-height: 1.8;
         }
+        .qr-section {
+            margin: 40px 0;
+        }
+        .qr-section p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 16px;
+        }
+        #qrcode {
+            display: inline-block;
+            padding: 12px;
+            border: 2px solid #1f2d3d;
+            border-radius: 12px;
+        }
         .footer {
             margin-top: 60px;
             font-size: 16px;
@@ -62,9 +77,24 @@
         <p><strong>Email:</strong> <a href="mailto:info@be-bo.it">info@be-bo.it</a></p>
         <p><strong>Sito:</strong> <a href="https://www.be-bo.it">www.be-bo.it</a></p>
     </div>
+    <div class="qr-section">
+        <p>Scansiona per salvare il contatto</p>
+        <div id="qrcode"></div>
+    </div>
     <div class="footer">
         © 2026 BeBo
     </div>
 </div>
+
+<script>
+    new QRCode(document.getElementById("qrcode"), {
+        text: "BEGIN:VCARD\nVERSION:3.0\nFN:BeBo\nORG:BeBo\nTEL:+393515008464\nEMAIL:info@be-bo.it\nURL:https://www.be-bo.it\nADR:;;Cortina d'Ampezzo - Venezia;;;Italy\nEND:VCARD",
+        width: 200,
+        height: 200,
+        colorDark: "#1f2d3d",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+</script>
 </body>
 </html>
