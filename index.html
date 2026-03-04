@@ -2,97 +2,353 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>BeBo - Reti Sicurezza Assistenza</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeBo - Reti Sicurezza Assistenza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
+        :root {
+            --ink: #1a1f2e;
+            --ink-soft: #4a5270;
+            --paper: #fafaf8;
+            --accent: #c8a96e;
+            --line: #e2e2dc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #ffffff;
-            color: #1f2d3d;
-            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--paper);
+            color: var(--ink);
+            min-height: 100vh;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
+
+        /* FADE IN */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+        .fade { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+        .fade:nth-child(1) { animation-delay: 0.1s; }
+        .fade:nth-child(2) { animation-delay: 0.25s; }
+        .fade:nth-child(3) { animation-delay: 0.4s; }
+        .fade:nth-child(4) { animation-delay: 0.55s; }
+        .fade:nth-child(5) { animation-delay: 0.7s; }
+        .fade:nth-child(6) { animation-delay: 0.85s; }
+
+        /* HEADER */
+        header {
+            border-bottom: 1px solid var(--line);
+            padding: 32px 40px;
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
             font-weight: 600;
+            letter-spacing: -1px;
+            color: var(--ink);
         }
-        .tagline {
-            font-size: 20px;
-            margin-bottom: 40px;
-            color: #4a4a4a;
+        .logo span {
+            color: var(--accent);
         }
-        .section {
-            margin: 40px 0;
+        .tagline-header {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--ink-soft);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
-        .contact {
-            font-size: 18px;
-            line-height: 1.8;
+
+        /* MAIN */
+        main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 40px 80px;
         }
-        .qr-section {
-            margin: 40px 0;
+
+        /* HERO */
+        .hero {
+            margin-bottom: 64px;
         }
-        .qr-section p {
-            font-size: 15px;
-            color: #555;
+        .hero h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 38px;
+            font-weight: 300;
+            line-height: 1.3;
             margin-bottom: 16px;
         }
-        #qrcode {
-            display: inline-block;
-            padding: 12px;
-            border: 2px solid #1f2d3d;
-            border-radius: 12px;
-        }
-        .footer {
-            margin-top: 60px;
+        .hero p {
             font-size: 16px;
-            color: #777;
+            color: var(--ink-soft);
+            line-height: 1.7;
+            max-width: 520px;
         }
-        a {
-            color: #1f2d3d;
+        .locations {
+            margin-top: 12px;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* SERVICES */
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+            margin-bottom: 64px;
+        }
+        .service-card {
+            background: var(--paper);
+            padding: 28px 24px;
+            transition: background 0.2s;
+        }
+        .service-card:hover {
+            background: #f0f0eb;
+        }
+        .service-icon {
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+        .service-card h3 {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        .service-card p {
+            font-size: 13px;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        /* HOURS + CONTACT GRID */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+        @media (max-width: 600px) {
+            .bottom-grid { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 4px; }
+            .hero h2 { font-size: 28px; }
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .hours-table tr {
+            border-bottom: 1px solid var(--line);
+        }
+        .hours-table td {
+            padding: 10px 0;
+            color: var(--ink-soft);
+        }
+        .hours-table td:first-child {
+            font-weight: 500;
+            color: var(--ink);
+            width: 110px;
+        }
+        .hours-table .closed {
+            color: #bbb;
+            font-style: italic;
+        }
+
+        /* CONTACT */
+        .contact-block a {
+            display: block;
+            font-size: 15px;
+            color: var(--ink);
             text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--line);
+            transition: color 0.2s;
         }
-        a:hover {
-            text-decoration: underline;
+        .contact-block a:hover { color: var(--accent); }
+        .contact-block .label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* QR */
+        .qr-row {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            padding: 32px;
+            border: 1px solid var(--line);
+            margin-bottom: 64px;
+        }
+        #qrcode canvas, #qrcode img {
+            display: block;
+        }
+        .qr-text h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+        .qr-text p {
+            font-size: 13px;
+            color: var(--ink-soft);
+            line-height: 1.6;
+        }
+
+        /* WHATSAPP */
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 14px 28px;
+            border-radius: 2px;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .whatsapp-btn:hover {
+            background: #1ebe5a;
+            transform: translateY(-1px);
+        }
+        .whatsapp-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+            flex-shrink: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 24px 40px;
+            font-size: 12px;
+            color: #aaa;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>BeBo</h1>
-    <div class="tagline">Reti • Sicurezza • Assistenza</div>
-    <div class="section">
-        <p>Gestione reti Wi-Fi, sistemi di sicurezza e assistenza tecnica continuativa.</p>
-        <p>Cortina d'Ampezzo – Venezia</p>
+
+<header>
+    <div class="logo">Be<span>Bo</span></div>
+    <div class="tagline-header">Reti &bull; Sicurezza &bull; Assistenza</div>
+</header>
+
+<main>
+
+    <div class="hero fade">
+        <h2>Tecnologia che funziona,<br>assistenza che risponde.</h2>
+        <p>Configurazione e gestione reti Wi-Fi, sistemi di sicurezza e supporto tecnico continuativo per privati e piccole imprese.</p>
+        <div class="locations">Cortina d'Ampezzo &nbsp;–&nbsp; Venezia</div>
     </div>
-    <div class="section contact">
-        <p><strong>Telefono:</strong> <a href="tel:+393515008464">+39 351 500 8464</a></p>
-        <p><strong>Email:</strong> <a href="mailto:info@be-bo.it">info@be-bo.it</a></p>
-        <p><strong>Sito:</strong> <a href="https://www.be-bo.it">www.be-bo.it</a></p>
+
+    <div class="fade">
+        <div class="section-label">Servizi</div>
+        <div class="services">
+            <div class="service-card">
+                <div class="service-icon">📡</div>
+                <h3>Reti Wi-Fi</h3>
+                <p>Progettazione, installazione e ottimizzazione di reti domestiche e professionali.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔒</div>
+                <h3>Sicurezza</h3>
+                <p>Configurazione firewall, VPN, accessi sicuri e protezione della rete domestica.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>PC &amp; Mac</h3>
+                <p>Setup, aggiornamenti, pulizia e risoluzione problemi su computer Windows e macOS.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Smartphone</h3>
+                <p>Configurazione, migrazione dati, account e posta elettronica su iOS e Android.</p>
+            </div>
+        </div>
     </div>
-    <div class="qr-section">
-        <p>Scansiona per salvare il contatto</p>
+
+    <div class="bottom-grid fade">
+        <div>
+            <div class="section-label">Orari</div>
+            <table class="hours-table">
+                <tr><td>Lunedì</td><td>9:00 – 18:00</td></tr>
+                <tr><td>Martedì</td><td>9:00 – 18:00</td></tr>
+                <tr><td>Mercoledì</td><td>9:00 – 18:00</td></tr>
+                <tr><td>Giovedì</td><td>9:00 – 18:00</td></tr>
+                <tr><td>Venerdì</td><td>9:00 – 17:00</td></tr>
+                <tr><td>Sabato</td><td>Su appuntamento</td></tr>
+                <tr><td>Domenica</td><td class="closed">Chiuso</td></tr>
+            </table>
+        </div>
+        <div>
+            <div class="section-label">Contatti</div>
+            <div class="contact-block">
+                <a href="tel:+393515008464">
+                    <span class="label">Telefono</span>
+                    +39 351 500 8464
+                </a>
+                <a href="mailto:info@be-bo.it">
+                    <span class="label">Email</span>
+                    info@be-bo.it
+                </a>
+                <a href="https://www.be-bo.it">
+                    <span class="label">Sito</span>
+                    www.be-bo.it
+                </a>
+            </div>
+            <br>
+            <a class="whatsapp-btn" href="https://wa.me/393515008464?text=Ciao%2C%20vorrei%20informazioni%20sui%20vostri%20servizi." target="_blank">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Scrivici su WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <div class="qr-row fade">
         <div id="qrcode"></div>
+        <div class="qr-text">
+            <h4>Salva il contatto</h4>
+            <p>Inquadra il QR con la fotocamera del telefono per aggiungere BeBo direttamente ai tuoi contatti.</p>
+        </div>
     </div>
-    <div class="footer">
-        © 2026 BeBo
-    </div>
-</div>
+
+</main>
+
+<footer>
+    © 2026 BeBo &nbsp;·&nbsp; P.IVA in corso di registrazione
+</footer>
 
 <script>
     new QRCode(document.getElementById("qrcode"), {
         text: "BEGIN:VCARD\nVERSION:3.0\nFN:BeBo\nORG:BeBo\nTEL:+393515008464\nEMAIL:info@be-bo.it\nURL:https://www.be-bo.it\nADR:;;Cortina d'Ampezzo - Venezia;;;Italy\nEND:VCARD",
-        width: 200,
-        height: 200,
-        colorDark: "#1f2d3d",
-        colorLight: "#ffffff",
+        width: 160,
+        height: 160,
+        colorDark: "#1a1f2e",
+        colorLight: "#fafaf8",
         correctLevel: QRCode.CorrectLevel.H
     });
 </script>
