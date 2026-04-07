@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeBo — Servizi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink:#1a1f2e; --ink-soft:#4a5270; --paper:#fafaf8; --accent:#c8a96e; --line:#e2e2dc; --green:#2d5a3d; }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:'DM Sans',sans-serif; background:var(--paper); color:var(--ink); }
+        nav { border-bottom:1px solid var(--line); padding:0 40px; display:flex; align-items:center; gap:32px; height:60px; position:sticky; top:0; background:var(--paper); z-index:100; }
+        .nav-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--ink); text-decoration:none; letter-spacing:-0.5px; }
+        .nav-logo span { color:var(--accent); }
+        .nav-links { display:flex; gap:24px; flex:1; }
+        .nav-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; transition:color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color:var(--ink); font-weight:500; }
+        .nav-cta { font-size:12px; font-weight:500; background:var(--ink); color:var(--paper) !important; text-decoration:none; padding:8px 18px; border-radius:2px; }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+        .fade { opacity:0; animation:fadeUp 0.6s ease forwards; }
+        .fade:nth-child(1){animation-delay:.05s} .fade:nth-child(2){animation-delay:.15s} .fade:nth-child(3){animation-delay:.25s} .fade:nth-child(4){animation-delay:.35s} .fade:nth-child(5){animation-delay:.45s} .fade:nth-child(6){animation-delay:.55s} .fade:nth-child(7){animation-delay:.65s}
+        main { max-width:900px; margin:0 auto; padding:56px 40px 80px; }
+        .page-header { margin-bottom:52px; }
+        .page-header h1 { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; margin-bottom:10px; }
+        .page-header p { font-size:15px; color:var(--ink-soft); line-height:1.75; max-width:540px; }
+        .section-label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--accent); font-weight:500; margin-bottom:20px; }
+
+        /* SERVICE BLOCKS */
+        .service-block { border:1px solid var(--line); margin-bottom:2px; overflow:hidden; }
+        .service-block-header { display:grid; grid-template-columns:56px 1fr; align-items:center; padding:20px 24px; gap:16px; cursor:default; }
+        .service-block-header:hover { background:#f2f2ed; }
+        .s-icon { font-size:26px; text-align:center; }
+        .s-title { font-size:16px; font-weight:500; margin-bottom:4px; }
+        .s-short { font-size:13px; color:var(--ink-soft); }
+        .service-body { padding:0 24px 24px 96px; border-top:1px solid var(--line); }
+        .service-body p { font-size:13px; color:var(--ink-soft); line-height:1.7; margin-top:16px; margin-bottom:12px; }
+        .service-body ul { list-style:none; }
+        .service-body ul li { font-size:13px; color:var(--ink-soft); padding:6px 0; border-bottom:1px solid var(--line); display:flex; gap:10px; }
+        .service-body ul li:last-child { border-bottom:none; }
+        .service-body ul li::before { content:'→'; color:var(--accent); flex-shrink:0; }
+
+        /* TARGET */
+        .target-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:60px; }
+        .target-card { background:var(--paper); padding:24px 20px; }
+        .target-card:hover { background:#f0f0eb; }
+        .t-icon { font-size:22px; margin-bottom:10px; }
+        .target-card h3 { font-size:14px; font-weight:500; margin-bottom:6px; }
+        .target-card p { font-size:13px; color:var(--ink-soft); line-height:1.5; }
+
+        /* NOTE BOX */
+        .note-box { background:var(--ink); color:var(--paper); padding:28px 32px; border-radius:2px; margin-top:40px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+        .note-box p { font-size:14px; color:rgba(255,255,255,0.75); max-width:480px; line-height:1.65; }
+        .note-box a { font-size:13px; font-weight:500; background:var(--paper); color:var(--ink); text-decoration:none; padding:10px 22px; border-radius:2px; white-space:nowrap; }
+        footer { border-top:1px solid var(--line); padding:22px 40px; font-size:12px; color:#aaa; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+        @media (max-width:620px) { nav{padding:0 20px} .nav-links{display:none} main{padding:36px 20px 60px} .service-body{padding:0 16px 20px 16px} }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="index.html" class="nav-logo">Be<span>Bo</span></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="servizi.html" class="active">Servizi</a>
+        <a href="tariffe.html">Tariffe</a>
+        <a href="gdpr.html">GDPR &amp; Privacy</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/393515008464?text=Ciao%2C%20vorrei%20informazioni%20sui%20servizi%20BeBo." target="_blank">Scrivici</a>
+</nav>
+
+<main>
+    <div class="page-header fade">
+        <h1>I nostri servizi</h1>
+        <p>Tutto quello che serve per tenere la tecnologia della tua attività sotto controllo. Interventi puntuali o assistenza continuativa: decidi tu.</p>
+    </div>
+
+    <div class="fade">
+        <div class="section-label">Servizi disponibili</div>
+
+        <div class="service-block">
+            <div class="service-block-header">
+                <div class="s-icon">📡</div>
+                <div><div class="s-title">Reti Wi-Fi &amp; LAN</div><div class="s-short">Progettazione, installazione e ottimizzazione</div></div>
+            </div>
+            <div class="service-body">
+                <p>Dal modem dell'operatore a ogni angolo dell'ufficio: progettiamo reti stabili, sicure e scalabili per attività di qualsiasi dimensione.</p>
+                <ul>
+                    <li>Analisi copertura e sopralluogo tecnico</li>
+                    <li>Configurazione router, switch e access point (UniFi, TP-Link, Asus)</li>
+                    <li>Segmentazione reti (rete ospiti separata dalla rete aziendale)</li>
+                    <li>Ottimizzazione reti esistenti lente o instabili</li>
+                    <li>Configurazione DNS, DHCP, IP statici</li>
+                    <li>Cablaggio e posa access point (in collaborazione con elettricista certificato)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-block-header">
+                <div class="s-icon">📷</div>
+                <div><div class="s-title">Videosorveglianza</div><div class="s-short">Installazione, configurazione e gestione NVR</div></div>
+            </div>
+            <div class="service-body">
+                <p>Sistemi di videosorveglianza IP professionali con accesso da remoto, registrazione locale e conformità GDPR. Forniamo anche la documentazione legale obbligatoria.</p>
+                <ul>
+                    <li>Telecamere IP interne ed esterne (Hikvision, Reolink, Dahua)</li>
+                    <li>NVR locale con sovrascrittura automatica conforme al Garante</li>
+                    <li>Accesso da remoto sicuro tramite app</li>
+                    <li>Cartello informativo e guida agli obblighi GDPR inclusi</li>
+                    <li>Assistenza "as-a-service": canone mensile con monitoraggio e aggiornamenti</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-block-header">
+                <div class="s-icon">🔒</div>
+                <div><div class="s-title">Sicurezza informatica</div><div class="s-short">Firewall, VPN, accessi e protezione rete</div></div>
+            </div>
+            <div class="service-body">
+                <p>Proteggere la rete aziendale non è opzionale. Configuriamo difese concrete senza complicare la vita a chi lavora ogni giorno.</p>
+                <ul>
+                    <li>Firewall e filtraggio traffico in uscita</li>
+                    <li>VPN per accesso sicuro da remoto (WireGuard, OpenVPN)</li>
+                    <li>Cambio credenziali default e hardening dispositivi</li>
+                    <li>Audit sicurezza: verifica dello stato attuale della rete (una tantum)</li>
+                    <li>Configurazione backup automatici</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-block-header">
+                <div class="s-icon">💻</div>
+                <div><div class="s-title">PC &amp; Mac</div><div class="s-short">Setup, manutenzione e risoluzione problemi</div></div>
+            </div>
+            <div class="service-body">
+                <p>Sistemi lenti, aggiornamenti bloccati, software che non parte: risolviamo i problemi quotidiani che rallentano il lavoro.</p>
+                <ul>
+                    <li>Setup iniziale di computer nuovi (Windows e macOS)</li>
+                    <li>Aggiornamenti sistema operativo e software</li>
+                    <li>Pulizia, ottimizzazione e velocizzazione</li>
+                    <li>Configurazione account email, cloud e stampanti</li>
+                    <li>Migrazione dati da vecchio a nuovo computer</li>
+                    <li>Installazione e configurazione antivirus/EDR</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-block-header">
+                <div class="s-icon">📱</div>
+                <div><div class="s-title">Smartphone &amp; Tablet</div><div class="s-short">iOS e Android, configurazione e migrazione</div></div>
+            </div>
+            <div class="service-body">
+                <ul>
+                    <li>Setup account email aziendale (Exchange, Gmail, PEC)</li>
+                    <li>Migrazione dati da vecchio dispositivo</li>
+                    <li>Configurazione VPN aziendale su mobile</li>
+                    <li>Sincronizzazione contatti, calendario e file</li>
+                    <li>Configurazione MDM base per parchi device aziendali</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-block-header">
+                <div class="s-icon">🔍</div>
+                <div><div class="s-title">Audit sicurezza rete</div><div class="s-short">Verifica completa dello stato attuale</div></div>
+            </div>
+            <div class="service-body">
+                <p>Un'analisi puntuale di tutta l'infrastruttura: password, firmware, configurazioni, backup. Al termine ricevi un report scritto con le vulnerabilità trovate e le azioni consigliate.</p>
+                <ul>
+                    <li>Verifica credenziali di default su tutti i dispositivi</li>
+                    <li>Controllo firmware e aggiornamenti mancanti</li>
+                    <li>Analisi segmentazione rete e accessi</li>
+                    <li>Verifica backup attivi e testati</li>
+                    <li>Report scritto con priorità di intervento</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-block-header">
+                <div class="s-icon">🏠</div>
+                <div><div class="s-title">Domotica e smart home</div><div class="s-short">Automazioni, luci, clima e controllo remoto</div></div>
+            </div>
+            <div class="service-body">
+                <p>Configurazione di sistemi domotici per abitazioni e piccoli uffici: luci intelligenti, prese smart, sensori e automazioni integrate.</p>
+                <ul>
+                    <li>Philips Hue, Apple Home, Google Home</li>
+                    <li>Shelly e Sonoff (integrazione con impianti elettrici esistenti)</li>
+                    <li>Automazioni personalizzate (orari, presenza, scenari)</li>
+                    <li>Integrazione con NVR e sistemi di allarme esistenti</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-block-header">
+                <div class="s-icon">🛠️</div>
+                <div><div class="s-title">Assistenza continuativa</div><div class="s-short">Contratto mensile con monitoraggio incluso</div></div>
+            </div>
+            <div class="service-body">
+                <p>Per chi non vuole pensarci: monitoraggio h24 della rete, interventi prioritari inclusi nel canone, risposta garantita. Ideale per studi professionali, negozi e piccoli uffici.</p>
+                <ul>
+                    <li>Monitoraggio uptime rete 24/7 con alert automatici</li>
+                    <li>Interventi remoti inclusi nel piano</li>
+                    <li>Priorità di intervento rispetto ai clienti spot</li>
+                    <li>Report mensile sullo stato dell'infrastruttura</li>
+                    <li>Canone fisso mensile, disdetta con 30 giorni di preavviso</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="fade" style="margin-top:56px;">
+        <div class="section-label">Chi serviamo</div>
+        <div class="target-grid">
+            <div class="target-card">
+                <div class="t-icon">🏢</div>
+                <h3>Studi professionali</h3>
+                <p>Avvocati, commercialisti, medici, architetti. Reti affidabili e backup sicuri per chi lavora con dati sensibili.</p>
+            </div>
+            <div class="target-card">
+                <div class="t-icon">🏨</div>
+                <h3>Hotel &amp; hospitality</h3>
+                <p>Wi-Fi ospiti, videosorveglianza e gestione remota per strutture ricettive di piccole e medie dimensioni.</p>
+            </div>
+            <div class="target-card">
+                <div class="t-icon">🏪</div>
+                <h3>Negozi &amp; uffici</h3>
+                <p>Assistenza tecnica continuativa per attività commerciali che non possono permettersi fermi tecnici.</p>
+            </div>
+            <div class="target-card">
+                <div class="t-icon">🏠</div>
+                <h3>Privati</h3>
+                <p>Reti domestiche, telecamere, domotica e supporto su computer e smartphone per uso privato.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="note-box fade">
+        <p>Vuoi sapere quanto costa? Vedi il listino completo o scrivici per un preventivo su misura.</p>
+        <a href="tariffe.html">Vedi le tariffe →</a>
+    </div>
+</main>
+
+<footer>
+    <span>© 2026 BeBo · Alberto Marchese &nbsp;·&nbsp; Venezia</span>
+    <span><a href="gdpr.html">GDPR &amp; Privacy</a> &nbsp;·&nbsp; <a href="tariffe.html">Tariffe</a></span>
+</footer>
+</body>
+</html>
