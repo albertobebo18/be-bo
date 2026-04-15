@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeBo — GDPR e Videosorveglianza</title>
+    <title>BeBo — Privacy Policy</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root { --ink:#1a1f2e; --ink-soft:#4a5270; --paper:#fafaf8; --accent:#c8a96e; --line:#e2e2dc; --green:#2d5a3d; --red:#8b2020; --gold:#8b6914; }
+        :root { --ink:#1a1f2e; --ink-soft:#4a5270; --paper:#fafaf8; --accent:#c8a96e; --line:#e2e2dc; --green:#2d5a3d; }
         * { box-sizing:border-box; margin:0; padding:0; }
         body { font-family:'DM Sans',sans-serif; background:var(--paper); color:var(--ink); }
         nav { border-bottom:1px solid var(--line); padding:0 40px; display:flex; align-items:center; gap:32px; height:60px; position:sticky; top:0; background:var(--paper); z-index:100; }
@@ -16,71 +16,27 @@
         .nav-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; transition:color 0.2s; }
         .nav-links a:hover, .nav-links a.active { color:var(--ink); font-weight:500; }
         .nav-cta { font-size:12px; font-weight:500; background:var(--ink); color:var(--paper) !important; text-decoration:none; padding:8px 18px; border-radius:2px; }
-        @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
-        .fade { opacity:0; animation:fadeUp 0.6s ease forwards; }
-        .fade:nth-child(1){animation-delay:.05s} .fade:nth-child(2){animation-delay:.15s} .fade:nth-child(3){animation-delay:.25s} .fade:nth-child(4){animation-delay:.35s} .fade:nth-child(5){animation-delay:.45s} .fade:nth-child(6){animation-delay:.55s}
-        main { max-width:900px; margin:0 auto; padding:56px 40px 80px; }
-        .page-header { margin-bottom:40px; }
+        main { max-width:760px; margin:0 auto; padding:56px 40px 80px; }
+        .page-header { margin-bottom:48px; }
         .page-header h1 { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; margin-bottom:10px; }
-        .page-header p { font-size:15px; color:var(--ink-soft); line-height:1.75; max-width:560px; }
-        .page-header .legal-ref { font-size:11px; color:#aaa; margin-top:10px; }
-        .section-label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--accent); font-weight:500; margin-bottom:20px; }
-        .section-gap { margin-bottom:56px; }
-
-        /* INTRO BOX */
-        .intro-box { background:var(--ink); color:var(--paper); padding:24px 28px; border-radius:2px; margin-bottom:52px; }
-        .intro-box p { font-size:14px; color:rgba(255,255,255,0.75); line-height:1.7; }
-        .intro-box strong { color:var(--paper); }
-
-        /* OBLIGATION BLOCKS */
-        .obbligo { border:1px solid var(--line); margin-bottom:2px; overflow:hidden; }
-        .obbligo-header { display:flex; align-items:center; gap:16px; padding:18px 24px; border-bottom:1px solid var(--line); }
-        .ob-num { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--accent); min-width:40px; }
-        .ob-title { font-size:16px; font-weight:500; }
-        .ob-urgency { font-size:10px; letter-spacing:1px; text-transform:uppercase; padding:3px 8px; border-radius:2px; margin-left:auto; white-space:nowrap; }
-        .urgency-red { background:rgba(139,32,32,0.1); color:var(--red); }
-        .urgency-gold { background:rgba(139,105,20,0.1); color:var(--gold); }
-        .urgency-green { background:rgba(45,90,61,0.1); color:var(--green); }
-        .obbligo-body { padding:20px 24px 24px; }
-        .obbligo-body p { font-size:13px; color:var(--ink-soft); line-height:1.7; margin-bottom:12px; }
-        .checklist { list-style:none; }
-        .checklist li { display:flex; gap:10px; align-items:flex-start; font-size:13px; color:var(--ink-soft); padding:7px 0; border-bottom:1px solid var(--line); }
-        .checklist li:last-child { border-bottom:none; }
-        .check { width:15px; height:15px; border:1px solid var(--line); flex-shrink:0; margin-top:2px; background:white; border-radius:2px; }
-        .checklist strong { display:block; color:var(--ink); }
-
-        /* RETENTION TABLE */
-        .ret-table { width:100%; border-collapse:collapse; font-size:13px; }
-        .ret-table th { background:var(--ink); color:var(--paper); padding:10px 16px; text-align:left; font-weight:400; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; }
-        .ret-table td { padding:10px 16px; border-bottom:1px solid var(--line); color:var(--ink-soft); }
-        .ret-table tr:last-child td { border-bottom:none; }
-        .ret-table td:first-child { font-weight:500; color:var(--ink); }
-        .ok { color:var(--green) !important; font-weight:500; }
-        .warn { color:var(--gold) !important; font-weight:500; }
-        .no { color:var(--red) !important; font-weight:500; }
-
-        /* ALERT */
-        .alert { border-radius:2px; padding:14px 18px; margin:16px 0; font-size:13px; }
-        .alert-red { background:rgba(139,32,32,0.06); border:1px solid rgba(139,32,32,0.2); color:var(--red); }
-        .alert-gold { background:rgba(139,105,20,0.06); border:1px solid rgba(139,105,20,0.2); color:var(--gold); }
-        .alert-green { background:rgba(45,90,61,0.06); border:1px solid rgba(45,90,61,0.2); color:var(--green); }
-
-        /* SANCTIONS */
-        .san-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
-        .san-card { background:var(--paper); padding:20px 18px; text-align:center; }
-        .san-num { font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--red); margin-bottom:4px; }
-        .san-label { font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px; }
-        .san-desc { font-size:12px; color:var(--ink-soft); line-height:1.5; }
-
-        /* CTA */
-        .cta-box { background:var(--ink); color:var(--paper); padding:32px 36px; border-radius:2px; margin-top:16px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
-        .cta-box h3 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; margin-bottom:4px; }
-        .cta-box p { font-size:13px; color:rgba(255,255,255,0.6); }
-        .cta-box a { font-size:13px; font-weight:500; background:var(--paper); color:var(--ink); text-decoration:none; padding:11px 22px; border-radius:2px; white-space:nowrap; }
-
+        .page-header .meta { font-size:12px; color:#aaa; margin-top:8px; }
+        h2 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; margin:40px 0 14px; border-bottom:1px solid var(--line); padding-bottom:8px; }
+        h3 { font-size:14px; font-weight:600; margin:24px 0 8px; color:var(--ink); }
+        p { font-size:14px; color:var(--ink-soft); line-height:1.8; margin-bottom:12px; }
+        ul { margin:8px 0 16px 0; padding-left:0; list-style:none; }
+        ul li { font-size:14px; color:var(--ink-soft); line-height:1.7; padding:4px 0; padding-left:16px; position:relative; }
+        ul li::before { content:'—'; position:absolute; left:0; color:var(--accent); }
+        .info-box { background:var(--ink); color:var(--paper); padding:20px 24px; border-radius:2px; margin:16px 0 32px; }
+        .info-box p { color:rgba(255,255,255,0.7); font-size:13px; margin:0; }
+        .info-box strong { color:var(--paper); }
+        .data-table { width:100%; border-collapse:collapse; font-size:13px; margin:16px 0 24px; }
+        .data-table th { background:var(--ink); color:var(--paper); padding:10px 14px; text-align:left; font-weight:400; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; }
+        .data-table td { padding:10px 14px; border-bottom:1px solid var(--line); color:var(--ink-soft); vertical-align:top; }
+        .data-table tr:last-child td { border-bottom:none; }
+        .data-table td:first-child { font-weight:500; color:var(--ink); white-space:nowrap; }
         footer { border-top:1px solid var(--line); padding:22px 40px; font-size:12px; color:#aaa; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
         footer a { color:#aaa; text-decoration:none; }
-        @media (max-width:620px) { nav{padding:0 20px} .nav-links{display:none} main{padding:36px 20px 60px} .san-grid{grid-template-columns:1fr} }
+        @media (max-width:620px) { nav{padding:0 20px} .nav-links{display:none} main{padding:36px 20px 60px} }
     </style>
 </head>
 <body>
@@ -90,160 +46,90 @@
         <a href="index.html">Home</a>
         <a href="servizi.html">Servizi</a>
         <a href="tariffe.html">Tariffe</a>
-        <a href="gdpr.html" class="active">GDPR &amp; Privacy</a>
+        <a href="gdpr.html" class="active">Privacy</a>
     </div>
-    <a class="nav-cta" href="https://wa.me/393515008464?text=Ciao%2C%20ho%20domande%20sulla%20normativa%20telecamere." target="_blank">Scrivici</a>
+    <a class="nav-cta" href="https://wa.me/393515008464?text=Ciao%2C%20vorrei%20informazioni%20sui%20servizi%20BeBo." target="_blank">Scrivici</a>
 </nav>
 
 <main>
-    <div class="page-header fade">
-        <h1>Videosorveglianza e GDPR</h1>
-        <p>Installare telecamere crea obblighi legali precisi. Questa guida spiega cosa fare dopo l'installazione, in linguaggio semplice e senza tecnicismi.</p>
-        <div class="legal-ref">Rif: GDPR (Reg. UE 2016/679) · D.Lgs. 196/2003 · Provvedimento Garante 8 aprile 2010 · Linee guida EDPB 3/2019</div>
+    <div class="page-header">
+        <h1>Informativa sulla Privacy</h1>
+        <p style="font-size:15px; color:var(--ink-soft); line-height:1.75; max-width:540px;">Ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR), ti informiamo su come trattiamo i tuoi dati personali attraverso questo sito.</p>
+        <div class="meta">Ultimo aggiornamento: aprile 2026 — Rif. GDPR (Reg. UE 2016/679) · D.Lgs. 196/2003 e s.m.i.</div>
     </div>
 
-    <div class="intro-box fade">
-        <p>Chi installa un impianto di videosorveglianza diventa automaticamente <strong>Titolare del Trattamento</strong> ai sensi del GDPR ed è soggetto a precisi obblighi di legge. Il mancato rispetto espone a sanzioni fino a <strong>€20 milioni</strong>. BeBo consegna sempre questa guida al cliente dopo ogni installazione.</p>
+    <div class="info-box">
+        <p><strong>Titolare del Trattamento</strong><br>
+        Alberto Marchese · BeBo<br>
+        Via [indirizzo] · Venezia (VE)<br>
+        alberto.marchese@be-bo.it · +39 351 500 8464</p>
     </div>
 
-    <!-- OBBLIGHI -->
-    <div class="fade section-gap">
-        <div class="section-label">Obblighi dopo l'installazione</div>
+    <h2>1. Dati raccolti e finalità</h2>
+    <p>Questo sito non utilizza moduli di contatto, non richiede registrazioni e non raccoglie dati personali in modo diretto. Le uniche modalità di contatto sono il link WhatsApp e l'indirizzo email visibili in pagina, che aprono applicazioni esterne (WhatsApp, client email) gestite dall'utente in autonomia.</p>
+    <p>Tuttavia, come la maggior parte dei siti web, alcune informazioni tecniche vengono trattate in modo automatico durante la navigazione:</p>
 
-        <div class="obbligo">
-            <div class="obbligo-header">
-                <div class="ob-num">01</div>
-                <div class="ob-title">Cartello informativo — obbligatorio e immediato</div>
-                <div class="ob-urgency urgency-red">Obbligatorio subito</div>
-            </div>
-            <div class="obbligo-body">
-                <p>Il cartello deve essere posizionato <strong>prima di entrare nell'area ripresa</strong>, visibile a chiunque possa essere inquadrato. Non basta uno solo se le telecamere coprono zone distinte.</p>
-                <ul class="checklist">
-                    <li><div class="check"></div><div><strong>Finalità della ripresa</strong> es. "sicurezza e prevenzione furti"</div></li>
-                    <li><div class="check"></div><div><strong>Titolare del Trattamento</strong> nome dell'azienda o persona fisica responsabile</div></li>
-                    <li><div class="check"></div><div><strong>Periodo di conservazione immagini</strong> es. "48 ore" o "7 giorni"</div></li>
-                    <li><div class="check"></div><div><strong>Dove trovare l'informativa completa</strong> sito web o email di contatto</div></li>
-                </ul>
-                <div class="alert alert-gold">💡 Il modello ufficiale del Garante è disponibile su garanteprivacy.it — usatelo come base, è gratuito e già conforme.</div>
-            </div>
-        </div>
+    <table class="data-table">
+        <thead><tr><th>Dato</th><th>Origine</th><th>Finalità</th><th>Conservazione</th></tr></thead>
+        <tbody>
+            <tr>
+                <td>Indirizzo IP</td>
+                <td>Server web (log di accesso)</td>
+                <td>Sicurezza, prevenzione abusi</td>
+                <td>Max 30 giorni nei log del server</td>
+            </tr>
+            <tr>
+                <td>Browser e sistema operativo</td>
+                <td>Header HTTP automatici</td>
+                <td>Compatibilità tecnica del sito</td>
+                <td>Max 30 giorni nei log del server</td>
+            </tr>
+            <tr>
+                <td>Pagine visitate e orari</td>
+                <td>Log del server</td>
+                <td>Analisi tecnica, sicurezza</td>
+                <td>Max 30 giorni nei log del server</td>
+            </tr>
+        </tbody>
+    </table>
 
-        <div class="obbligo">
-            <div class="obbligo-header">
-                <div class="ob-num">02</div>
-                <div class="ob-title">Informativa privacy completa (art. 13 GDPR)</div>
-                <div class="ob-urgency urgency-red">Obbligatorio</div>
-            </div>
-            <div class="obbligo-body">
-                <p>Oltre al cartello, occorre redigere un'informativa completa da rendere disponibile a chiunque ne faccia richiesta. Deve includere:</p>
-                <ul class="checklist">
-                    <li><div class="check"></div><div><strong>Finalità e base giuridica</strong> Sicurezza delle persone e dei beni (legittimo interesse ex art. 6.1.f GDPR)</div></li>
-                    <li><div class="check"></div><div><strong>Periodo di conservazione</strong> Definito e rispettato — non modificabile arbitrariamente</div></li>
-                    <li><div class="check"></div><div><strong>Destinatari dei dati</strong> Chi può vedere le immagini (titolare, BeBo come responsabile tecnico, forze dell'ordine)</div></li>
-                    <li><div class="check"></div><div><strong>Diritti degli interessati</strong> Accesso, rettifica, cancellazione, opposizione — con contatto per esercitarli</div></li>
-                    <li><div class="check"></div><div><strong>Trasferimento dati extra-UE</strong> Se il cloud dell'NVR è fuori UE, va dichiarato</div></li>
-                </ul>
-            </div>
-        </div>
+    <p>Questi dati tecnici non vengono incrociati con altre informazioni per identificare l'utente e non vengono ceduti a terzi per finalità commerciali.</p>
 
-        <div class="obbligo">
-            <div class="obbligo-header">
-                <div class="ob-num">03</div>
-                <div class="ob-title">Tempi massimi di conservazione delle immagini</div>
-                <div class="ob-urgency urgency-red">Critico</div>
-            </div>
-            <div class="obbligo-body">
-                <table class="ret-table">
-                    <thead><tr><th>Contesto</th><th>Tempo massimo</th><th>Note</th></tr></thead>
-                    <tbody>
-                        <tr><td>Aree pubbliche, negozi, reception</td><td class="ok">24–48 ore</td><td>Regola generale del Garante</td></tr>
-                        <tr><td>Esigenze di sicurezza documentate</td><td class="warn">Fino a 7 giorni</td><td>Richiede motivazione scritta nel registro trattamenti</td></tr>
-                        <tr><td>Oltre 7 giorni</td><td class="no">Non consentito</td><td>Richiede autorizzazione specifica del Garante</td></tr>
-                    </tbody>
-                </table>
-                <div class="alert alert-red">⚠️ L'NVR deve essere configurato con sovrascrittura automatica coerente con i tempi dichiarati nel cartello. Se il cartello dice "48 ore" e l'NVR conserva 30 giorni, siete già in violazione.</div>
-            </div>
-        </div>
+    <h2>2. Cookie</h2>
+    <p>Questo sito non installa cookie di profilazione o tracciamento di terze parti. Non sono presenti strumenti di analisi (Google Analytics o simili).</p>
+    <p>È presente un solo cookie tecnico di terze parti generato dal caricamento dei font Google Fonts (fonts.googleapis.com), necessario per la corretta visualizzazione grafica del sito. Google Fonts, a partire dall'aggiornamento del 2022, è configurato per non trasferire l'IP dell'utente ai server Google se le risorse sono caricate correttamente. Per ulteriori dettagli, consulta la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">privacy policy di Google</a>.</p>
+    <p>Non è presente un banner cookie perché non vengono installati cookie che richiedono consenso preventivo ai sensi della normativa italiana (Provvedimento Garante 8 gennaio 2015 e Linee guida cookie 2021).</p>
 
-        <div class="obbligo">
-            <div class="obbligo-header">
-                <div class="ob-num">04</div>
-                <div class="ob-title">Registro dei trattamenti (art. 30 GDPR)</div>
-                <div class="ob-urgency urgency-gold">Consigliato sempre</div>
-            </div>
-            <div class="obbligo-body">
-                <p>Obbligatorio per aziende con più di 250 dipendenti, ma fortemente consigliato a tutti. In caso di ispezione, dimostra che avete gestito i dati in modo consapevole.</p>
-                <ul class="checklist">
-                    <li><div class="check"></div><div><strong>Nome e contatti del Titolare</strong></div></li>
-                    <li><div class="check"></div><div><strong>Finalità del trattamento</strong> con base giuridica</div></li>
-                    <li><div class="check"></div><div><strong>Categorie di dati trattati</strong> (immagini = dati personali)</div></li>
-                    <li><div class="check"></div><div><strong>Destinatari e misure di sicurezza</strong></div></li>
-                    <li><div class="check"></div><div><strong>Tempi di conservazione</strong></div></li>
-                </ul>
-            </div>
-        </div>
+    <h2>3. Dati forniti volontariamente tramite WhatsApp o email</h2>
+    <p>Se decidi di contattarci tramite WhatsApp o email, i dati che fornisci (nome, numero di telefono, indirizzo email, contenuto del messaggio) vengono trattati esclusivamente per rispondere alla tua richiesta.</p>
+    <ul>
+        <li><strong>Base giuridica:</strong> esecuzione di misure precontrattuali su richiesta dell'interessato (art. 6.1.b GDPR)</li>
+        <li><strong>Conservazione:</strong> per il tempo necessario a gestire la richiesta, o fino a 24 mesi se si instaura un rapporto commerciale</li>
+        <li><strong>Destinatari:</strong> nessun terzo. I dati non vengono ceduti, venduti o comunicati a soggetti esterni salvo obblighi di legge</li>
+    </ul>
+    <p>Per i messaggi WhatsApp si applicano anche le condizioni di Meta Platforms Ireland Ltd., che gestisce il servizio. Consulta la relativa <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener" style="color:var(--accent);">informativa WhatsApp</a>.</p>
 
-        <div class="obbligo">
-            <div class="obbligo-header">
-                <div class="ob-num">05</div>
-                <div class="ob-title">Dipendenti e lavoratori — regole speciali</div>
-                <div class="ob-urgency urgency-red">Obbligatorio se ci sono dipendenti</div>
-            </div>
-            <div class="obbligo-body">
-                <p>Le telecamere nei luoghi di lavoro seguono regole più severe. L'art. 4 dello Statuto dei Lavoratori richiede accordo sindacale o autorizzazione dell'Ispettorato del Lavoro.</p>
-                <div class="alert alert-red">⚠️ Non è consentito inquadrare direttamente le postazioni di lavoro dei dipendenti senza accordo sindacale. Le telecamere devono essere orientate verso ingressi, magazzini o aree comuni.</div>
-                <div class="alert alert-gold">📋 Se la tua attività ha dipendenti, consulta un consulente del lavoro prima di installare telecamere in aree operative.</div>
-            </div>
-        </div>
+    <h2>4. I tuoi diritti</h2>
+    <p>Ai sensi degli artt. 15–22 del GDPR, puoi in qualsiasi momento esercitare i seguenti diritti:</p>
+    <ul>
+        <li><strong>Accesso</strong> — sapere quali dati trattiamo che ti riguardano</li>
+        <li><strong>Rettifica</strong> — correggere dati inesatti o incompleti</li>
+        <li><strong>Cancellazione</strong> — richiedere la rimozione dei tuoi dati ("diritto all'oblio")</li>
+        <li><strong>Limitazione</strong> — bloccare temporaneamente il trattamento in determinati casi</li>
+        <li><strong>Opposizione</strong> — opporti al trattamento basato su legittimo interesse</li>
+        <li><strong>Portabilità</strong> — ricevere i tuoi dati in formato strutturato e leggibile</li>
+    </ul>
+    <p>Per esercitare questi diritti, scrivi a <a href="mailto:alberto.marchese@be-bo.it" style="color:var(--accent);">alberto.marchese@be-bo.it</a>. Risponderemo entro 30 giorni. Hai anche il diritto di proporre reclamo al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener" style="color:var(--accent);">Garante per la Protezione dei Dati Personali</a>.</p>
 
-        <div class="obbligo">
-            <div class="obbligo-header">
-                <div class="ob-num">06</div>
-                <div class="ob-title">Accesso alle immagini — chi può vedere cosa</div>
-                <div class="ob-urgency urgency-gold">Da definire subito</div>
-            </div>
-            <div class="obbligo-body">
-                <ul class="checklist">
-                    <li><div class="check"></div><div><strong>Solo il Titolare</strong> può accedere alle registrazioni in autonomia</div></li>
-                    <li><div class="check"></div><div><strong>BeBo</strong> accede solo per manutenzione tecnica, su richiesta del Titolare</div></li>
-                    <li><div class="check"></div><div><strong>Forze dell'ordine</strong> possono richiedere le immagini con atto formale</div></li>
-                    <li><div class="check"></div><div><strong>Terzi</strong> non hanno diritto di accesso — mai condividere screenshot o video su social</div></li>
-                </ul>
-                <div class="alert alert-green">✅ BeBo firma un DPA (Data Processing Agreement) con ogni cliente: documento che regola il nostro accesso ai sistemi in qualità di Responsabile del Trattamento.</div>
-            </div>
-        </div>
-    </div>
+    <h2>5. Sicurezza dei dati</h2>
+    <p>Il sito è servito esclusivamente via HTTPS con certificato SSL/TLS aggiornato. I log tecnici del server sono accessibili solo al Titolare del Trattamento. Non sono presenti database di utenti o sistemi CRM collegati al sito.</p>
 
-    <!-- SANZIONI -->
-    <div class="fade section-gap">
-        <div class="section-label">Sanzioni in caso di violazione</div>
-        <div class="san-grid">
-            <div class="san-card">
-                <div class="san-num">€20M</div>
-                <div class="san-label">o 4% fatturato</div>
-                <div class="san-desc">Sanzione massima GDPR per violazioni gravi (la cifra più alta tra le due)</div>
-            </div>
-            <div class="san-card">
-                <div class="san-num">€10M</div>
-                <div class="san-label">o 2% fatturato</div>
-                <div class="san-desc">Sanzione per violazioni meno gravi (mancanza di documentazione, registro)</div>
-            </div>
-            <div class="san-card">
-                <div class="san-num">€50K</div>
-                <div class="san-label">Garante italiano</div>
-                <div class="san-desc">Sanzione tipica nelle ispezioni per mancanza di cartello o conservazione eccessiva</div>
-            </div>
-        </div>
-        <div class="alert alert-gold" style="margin-top:16px;">📋 Il Garante Privacy italiano effettua ispezioni sia su segnalazione sia a campione. Le sanzioni più comuni riguardano cartelli mancanti, conservazione oltre i 7 giorni e mancanza di informativa.</div>
-    </div>
+    <h2>6. Trasferimento dati extra-UE</h2>
+    <p>I log tecnici del server sono conservati su infrastruttura cloud in area UE/SEE. Il servizio Google Fonts è fornito da Google LLC (USA); Google dichiara di aderire alle clausole contrattuali standard UE come meccanismo di trasferimento ai sensi dell'art. 46 GDPR.</p>
+    <p>I messaggi WhatsApp vengono trattati da Meta Platforms Ireland Ltd. (UE) e Meta Platforms Inc. (USA); Meta aderisce anch'essa alle clausole contrattuali standard UE.</p>
 
-    <div class="cta-box fade">
-        <div>
-            <h3>Hai appena installato telecamere?</h3>
-            <p>Forniamo la documentazione GDPR completa inclusa in ogni installazione. Possiamo aiutarti anche a regolarizzare impianti esistenti.</p>
-        </div>
-        <a href="https://wa.me/393515008464?text=Ciao%2C%20ho%20bisogno%20di%20aiuto%20con%20la%20documentazione%20GDPR%20per%20le%20telecamere." target="_blank">Scrivici →</a>
-    </div>
+    <h2>7. Modifiche a questa informativa</h2>
+    <p>Questa informativa può essere aggiornata in caso di modifiche normative o tecniche al sito. La data di ultimo aggiornamento è indicata in cima alla pagina. Ti invitiamo a consultarla periodicamente.</p>
 </main>
 
 <footer>
